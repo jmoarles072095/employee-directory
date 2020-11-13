@@ -1,0 +1,23 @@
+{
+    "name": "employee-directory",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "axios": "^0.21.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jmoarles072095/employee-directory.git"
+    },
+    "author": "Jose Morales",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jmoarles072095/employee-directory/issues"
+    },
+    "homepage": "https://github.com/jmoarles072095/employee-directory#readme"
+}
