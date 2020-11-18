@@ -1,29 +1,29 @@
-import React from "react";
-
-import Container from "./components/Container/Container";
-import Row from "./components/Row/Row";
-import Col from "./components/Col/Col";
-import Header from "./components/Header/Header";
-import Search from "./components/Search/Search";
-
+import React, { useEffect, useState } from "react";
+import FilterInput from "./FilterInput";
+import Table from "./Table";
+import { getUsers } from "./API";
 import "./App.css";
 
-
 function App() {
+  const [initialUsers, updateAvailableUsers] = useState([]);
+  const [usersToRender, updateUsersToRender] = useState([]);
+
+  useEffect(() => {
+    getUsers().then(({ data: { results } }) => updateAvailableUsers(results));
+  }, []);
+
   return (
-      <Container className="App" style={{ margin: 0 }}>
-        <Row>
-          <Col size="md-12">
-            <Header />
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
-            <Search />
-          </Col>
-        </Row>
-      </Container>
+    <div className="App">
+      <h1>Employee Directory</h1>
+      <p>
+        To filter by first name, please begin your search in the user input
+        below
+      </p>
+      <FilterInput users={initialUsers} updateUsers={updateUsersToRender} />
+      <Table users={usersToRender} />
+    </div>
   );
 }
 
 export default App;
+//test
